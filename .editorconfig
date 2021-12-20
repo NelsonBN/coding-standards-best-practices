@@ -40,7 +40,6 @@ indent_size = 2
 # Code files
 [*.{cs,csx,vb,vbx}]
 indent_size = 4
-insert_final_newline = false
 charset = utf-8-bom
 
 
@@ -58,7 +57,6 @@ tab_width = 4
 
 # New line preferences
 end_of_line = crlf
-insert_final_newline = false
 
 #### .NET Coding Conventions ####
 
@@ -78,10 +76,10 @@ dotnet_style_predefined_type_for_locals_parameters_members = true:suggestion
 dotnet_style_predefined_type_for_member_access = true:suggestion
 
 # Parentheses preferences
-dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:suggestion
-dotnet_style_parentheses_in_other_binary_operators = always_for_clarity:suggestion
-dotnet_style_parentheses_in_other_operators = never_if_unnecessary:suggestion
-dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity:suggestion
+dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0047-ide0048#dotnet_style_parentheses_in_arithmetic_binary_operators
+dotnet_style_parentheses_in_other_binary_operators = always_for_clarity:suggestion #https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0047-ide0048#dotnet_style_parentheses_in_other_binary_operators
+dotnet_style_parentheses_in_other_operators = never_if_unnecessary:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0047-ide0048#dotnet_style_parentheses_in_other_operators
+dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0047-ide0048#dotnet_style_parentheses_in_relational_binary_operators
 
 # Modifier preferences
 dotnet_style_require_accessibility_modifiers = for_non_interface_members
@@ -89,11 +87,11 @@ dotnet_style_readonly_field = true:suggestion
 
 # Expression-level preferences
 dotnet_style_coalesce_expression = true:suggestion
-dotnet_style_collection_initializer = true:suggestion
+dotnet_style_collection_initializer = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0028#dotnet_style_collection_initializer
 dotnet_style_explicit_tuple_names = true:suggestion
 dotnet_style_namespace_match_folder = true
 dotnet_style_null_propagation = true:suggestion
-dotnet_style_object_initializer = true:suggestion
+dotnet_style_object_initializer = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0017#overview
 dotnet_style_operator_placement_when_wrapping = beginning_of_line
 dotnet_style_prefer_auto_properties = true:suggestion
 dotnet_style_prefer_compound_assignment = true
@@ -148,7 +146,7 @@ csharp_style_expression_bodied_properties = true:suggestion
 csharp_style_pattern_matching_over_as_with_null_check = true
 csharp_style_pattern_matching_over_is_with_cast_check = true
 csharp_style_prefer_not_pattern = true
-csharp_style_prefer_pattern_matching = true:suggestion
+csharp_style_prefer_pattern_matching = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0078#csharp_style_prefer_pattern_matching
 csharp_style_prefer_switch_expression = true
 
 # Null-checking preferences
@@ -160,25 +158,25 @@ csharp_prefer_static_local_function = true:suggestion
 csharp_preferred_modifier_order = public,private,protected,internal,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,volatile,async:suggestion
 
 # Code-block preferences
-csharp_prefer_braces = true:suggestion
-csharp_prefer_simple_using_statement = false
-csharp_style_namespace_declarations = file_scoped:suggestion
+csharp_prefer_braces = true:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0011#csharp_prefer_braces
+csharp_prefer_simple_using_statement = false:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0063#csharp_prefer_simple_using_statement
+csharp_style_namespace_declarations = file_scoped:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_style_namespace_declarations
 
 # Expression-level preferences
-csharp_prefer_simple_default_expression = true:suggestion
-csharp_style_deconstructed_variable_declaration = true:suggestion
-csharp_style_implicit_object_creation_when_type_is_apparent = true
-csharp_style_inlined_variable_declaration = true:suggestion
-csharp_style_pattern_local_over_anonymous_function = true:suggestion
-csharp_style_prefer_index_operator = true
-csharp_style_prefer_null_check_over_type_check = true
-csharp_style_prefer_range_operator = true
-csharp_style_throw_expression = true
-csharp_style_unused_value_assignment_preference = discard_variable:silent
-csharp_style_unused_value_expression_statement_preference = discard_variable
+csharp_prefer_simple_default_expression = true:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0034#csharp_prefer_simple_default_expression
+csharp_style_deconstructed_variable_declaration = true:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0042#csharp_style_deconstructed_variable_declaration
+csharp_style_implicit_object_creation_when_type_is_apparent = true:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0090#csharp_style_implicit_object_creation_when_type_is_apparent
+csharp_style_inlined_variable_declaration = true:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0018#csharp_style_inlined_variable_declaration
+csharp_style_pattern_local_over_anonymous_function = true:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0039#csharp_style_pattern_local_over_anonymous_function
+csharp_style_prefer_index_operator = true:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0056#csharp_style_prefer_index_operator
+csharp_style_prefer_null_check_over_type_check = true:suggestion
+csharp_style_prefer_range_operator = true:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0057#csharp_style_prefer_range_operator
+csharp_style_throw_expression = true:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0016
+csharp_style_unused_value_assignment_preference = discard_variable:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0059#csharp_style_unused_value_assignment_preference
+#csharp_style_unused_value_expression_statement_preference = discard_variable:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0058#csharp_style_unused_value_expression_statement_preference
 
 # 'using' directive preferences
-csharp_using_directive_placement = outside_namespace:suggestion
+csharp_using_directive_placement = outside_namespace:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_using_directive_placement
 
 # New line preferences
 csharp_style_allow_blank_line_after_colon_in_constructor_initializer_experimental = false:suggestion
@@ -193,49 +191,49 @@ csharp_style_allow_embedded_statements_on_same_line_experimental = true
 ###############################
 
 # New line preferences
-csharp_new_line_before_catch = true:suggestion
-csharp_new_line_before_else = true:suggestion
-csharp_new_line_before_finally = true:suggestion
-csharp_new_line_before_members_in_anonymous_types = true:suggestion
-csharp_new_line_before_members_in_object_initializers = true:suggestion
-csharp_new_line_before_open_brace = all:suggestion
-csharp_new_line_between_query_expression_clauses = true:suggestion
+csharp_new_line_before_catch = true # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_new_line_before_catch
+csharp_new_line_before_else = true # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_new_line_before_else
+csharp_new_line_before_finally = true # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_new_line_before_finally
+csharp_new_line_before_members_in_anonymous_types = true # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_new_line_before_members_in_anonymous_types
+csharp_new_line_before_members_in_object_initializers = true # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_new_line_before_members_in_object_initializers
+csharp_new_line_before_open_brace = all # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_new_line_before_open_brace
+csharp_new_line_between_query_expression_clauses = true # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_new_line_between_query_expression_clauses
 
 # Indentation preferences
-csharp_indent_block_contents = true:suggestion
-csharp_indent_braces = false:suggestion
-csharp_indent_case_contents = true:suggestion
-csharp_indent_case_contents_when_block = false:suggestion
-csharp_indent_labels = flush_left:suggestion
-csharp_indent_switch_labels = true:suggestion
+csharp_indent_block_contents = true # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_indent_block_contents
+csharp_indent_braces = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_indent_braces
+csharp_indent_case_contents = true # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_indent_case_contents
+csharp_indent_case_contents_when_block = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_indent_case_contents_when_block
+csharp_indent_labels = flush_left # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_indent_labels
+csharp_indent_switch_labels = true # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_indent_switch_labels
 
 # Space preferences
-csharp_space_after_cast = false:suggestion
-csharp_space_after_colon_in_inheritance_clause = true:suggestion
-csharp_space_after_comma = true:suggestion
-csharp_space_after_dot = false:suggestion
-csharp_space_after_keywords_in_control_flow_statements = false:suggestion
-csharp_space_after_semicolon_in_for_statement = true:suggestion
-csharp_space_around_binary_operators = before_and_after:suggestion
-csharp_space_around_declaration_statements = false:suggestion
-csharp_space_before_colon_in_inheritance_clause = true:suggestion
-csharp_space_before_comma = false:suggestion
-csharp_space_before_dot = false:suggestion
-csharp_space_before_open_square_brackets = false:suggestion
-csharp_space_before_semicolon_in_for_statement = false:suggestion
-csharp_space_between_empty_square_brackets = false:suggestion
-csharp_space_between_method_call_empty_parameter_list_parentheses = false:suggestion
-csharp_space_between_method_call_name_and_opening_parenthesis = false:suggestion
-csharp_space_between_method_call_parameter_list_parentheses = false:suggestion
-csharp_space_between_method_declaration_empty_parameter_list_parentheses = false:suggestion
-csharp_space_between_method_declaration_name_and_open_parenthesis = false:suggestion
-csharp_space_between_method_declaration_parameter_list_parentheses = false:suggestion
-csharp_space_between_parentheses = false:suggestion
-csharp_space_between_square_brackets = false:suggestion
+csharp_space_after_cast = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_after_cast
+csharp_space_after_colon_in_inheritance_clause = true # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_after_colon_in_inheritance_clause
+csharp_space_after_comma = true # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_after_comma
+csharp_space_after_dot = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_after_dot
+csharp_space_after_keywords_in_control_flow_statements = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_after_keywords_in_control_flow_statements
+csharp_space_after_semicolon_in_for_statement = true # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_after_semicolon_in_for_statement
+csharp_space_around_binary_operators = before_and_after # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_around_binary_operators
+csharp_space_around_declaration_statements = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_around_declaration_statements
+csharp_space_before_colon_in_inheritance_clause = true # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_before_colon_in_inheritance_clause
+csharp_space_before_comma = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_before_comma
+csharp_space_before_dot = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_before_dot
+csharp_space_before_open_square_brackets = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_before_open_square_brackets
+csharp_space_before_semicolon_in_for_statement = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_before_semicolon_in_for_statement
+csharp_space_between_empty_square_brackets = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_between_empty_square_brackets
+csharp_space_between_method_call_empty_parameter_list_parentheses = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_between_method_call_empty_parameter_list_parentheses
+csharp_space_between_method_call_name_and_opening_parenthesis = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_between_method_call_name_and_opening_parenthesis
+csharp_space_between_method_call_parameter_list_parentheses = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_between_method_call_parameter_list_parentheses
+csharp_space_between_method_declaration_empty_parameter_list_parentheses = false # csharp_space_between_method_declaration_empty_parameter_list_parentheses
+csharp_space_between_method_declaration_name_and_open_parenthesis = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_between_method_declaration_name_and_open_parenthesis
+csharp_space_between_method_declaration_parameter_list_parentheses = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_between_method_declaration_parameter_list_parentheses
+#csharp_space_between_parentheses = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_between_parentheses
+csharp_space_between_square_brackets = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_space_between_square_brackets
 
 # Wrapping preferences
-csharp_preserve_single_line_blocks = true:suggestion
-csharp_preserve_single_line_statements = false:suggestion
+csharp_preserve_single_line_blocks = true # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_preserve_single_line_blocks
+csharp_preserve_single_line_statements = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_preserve_single_line_statements
 
 
 
@@ -419,6 +417,19 @@ dotnet_naming_style.camel_case.required_prefix =
 dotnet_naming_style.camel_case.required_suffix = 
 dotnet_naming_style.camel_case.word_separator = 
 dotnet_naming_style.camel_case.capitalization = camel_case
+
+
+
+
+###############################
+# Hide dotnet messages        #
+###############################
+
+# CA1848: Use the LoggerMessage delegates
+dotnet_diagnostic.CA1848.severity = none
+
+# CA2254: Template should be a static expression
+dotnet_diagnostic.CA2254.severity = none
 
 
 
