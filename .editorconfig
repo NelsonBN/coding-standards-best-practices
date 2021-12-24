@@ -50,19 +50,17 @@ charset = utf-8-bom
 ###############################
 [*.{cs,vb}]
 
-# Indentation and spacing
-indent_size = 4
-indent_style = space
-tab_width = 4
+insert_final_newline = true # Insert a newline at the end of the file when you save it
+trim_trailing_whitespace = true # Trim trailing whitespace on lines when you press enter
 
-# New line preferences
-end_of_line = crlf
+# Indentation and spacing
+tab_width = 4
 
 #### .NET Coding Conventions ####
 
 # Organize usings
-dotnet_separate_import_directive_groups = false
-dotnet_sort_system_directives_first = true
+dotnet_separate_import_directive_groups = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#dotnet_separate_import_directive_groups
+dotnet_sort_system_directives_first = true # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#dotnet_sort_system_directives_first
 file_header_template = unset
 
 # this. and Me. preferences
@@ -89,7 +87,7 @@ dotnet_style_readonly_field = true:suggestion
 dotnet_style_coalesce_expression = true:suggestion
 dotnet_style_collection_initializer = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0028#dotnet_style_collection_initializer
 dotnet_style_explicit_tuple_names = true:suggestion
-dotnet_style_namespace_match_folder = true
+dotnet_style_namespace_match_folder = true # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#dotnet_style_namespace_match_folder
 dotnet_style_null_propagation = true:suggestion
 dotnet_style_object_initializer = false # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0017#overview
 dotnet_style_operator_placement_when_wrapping = beginning_of_line
@@ -430,6 +428,9 @@ dotnet_diagnostic.CA1848.severity = none
 
 # CA2254: Template should be a static expression
 dotnet_diagnostic.CA2254.severity = none
+
+# CA2208: Instantiate argument exceptions correctly - https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca2208
+dotnet_diagnostic.CA2208.severity = none # Occurs when we use string  interpolation in message. E.g. new ArgumentNullException(nameof(Name), $"The {nameof(Name)} cannot be null");
 
 
 
