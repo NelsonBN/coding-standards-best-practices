@@ -6,7 +6,7 @@
 
 ## Documentations:
 * Microsoft:
-  * [Code style rule options](https://docs.microsoft.com/pt-br/dotnet/fundamentals/code-analysis/code-style-rule-options)
+  * [Code style rule options](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/code-style-rule-options)
   * [Formatting rules](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules)
 * Other:
   * [editorconfig.org](https://editorconfig.org/)
