@@ -10,6 +10,7 @@ root = true
 
 # All files
 [*]
+charset = utf-8
 # Indentation and spacing
 indent_size = 4
 indent_style = space
@@ -19,10 +20,12 @@ tab_width = 4
 end_of_line = crlf
 insert_final_newline = false
 
-charset = utf-8
+# Max line length
+guidelines = 80
+max_line_length = 120
 
 
-# XML project files
+# Visual Studio XML Project Files
 [*.{csproj,vbproj,vcxproj,vcxproj.filters,proj,projitems,shproj}]
 indent_size = 2
 
@@ -30,17 +33,37 @@ indent_size = 2
 [*.{yaml,yml}]
 indent_size = 2
 
-
 # Config files
-[*.{props,targets,ruleset,config,nuspec,resx,vsixmanifest,vsct,json}]
+[*.{xml,props,targets,ruleset,config,nuspec,resx,vsixmanifest,vsct}]
 indent_size = 2
 
+# JSON Files
+[*.{json,json5,webmanifest}]
+indent_size = 2
 
 # Code files
 [*.{cs,csx,vb,vbx}]
 indent_size = 4
-charset = utf-8-bom
 
+# Visual Studio Solution Files
+[*.sln]
+indent_size = 2
+
+# Markdown Files
+[*.{md,mdx}]
+trim_trailing_whitespace = false
+
+# Web Files
+[*.{htm,html,js,jsm,ts,tsx,cjs,cts,ctsx,mjs,mts,mtsx,css,sass,scss,less,pcss,svg,vue}]
+indent_size = 2
+
+# Batch Files
+[*.{cmd,bat}]
+end_of_line = crlf
+
+# Bash Files
+[*.sh]
+end_of_line = lf
 
 
 
@@ -118,6 +141,10 @@ dotnet_style_allow_multiple_blank_lines_experimental = true
 dotnet_style_allow_statement_immediately_after_block_experimental = true
 
 
+dotnet_diagnostic.CS8019.severity = warning # (unused directives) Who the compiler handles unused usings
+dotnet_diagnostic.IDE0005.severity = warning # (unused directives) Who the IDE handles unused usings
+dotnet_diagnostic.CS1591.severity = none # Disable: Missing XML comment for publicly visible type or member
+
 
 ###############################
 # C# Coding Conventions       #
@@ -162,7 +189,11 @@ csharp_preferred_modifier_order = public,private,protected,internal,static,exter
 # Code-block preferences
 csharp_prefer_braces = true:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0011#csharp_prefer_braces
 csharp_prefer_simple_using_statement = false:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0063#csharp_prefer_simple_using_statement
-csharp_style_namespace_declarations = file_scoped:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_style_namespace_declarations
+# https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#csharp_style_namespace_declarations
+# https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0160-ide0161
+csharp_style_namespace_declarations = file_scoped:suggestion
+dotnet_diagnostic.IDE0160.severity = warning
+dotnet_diagnostic.IDE0161.severity = none
 
 # Expression-level preferences
 csharp_prefer_simple_default_expression = true:suggestion # https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0034#csharp_prefer_simple_default_expression
@@ -321,15 +352,15 @@ dotnet_naming_rule.private_field_should_be__camalcase.style = _camalcase
 
 dotnet_naming_symbols.interface.applicable_kinds = interface
 dotnet_naming_symbols.interface.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
-dotnet_naming_symbols.interface.required_modifiers = 
+dotnet_naming_symbols.interface.required_modifiers =
 
 dotnet_naming_symbols.private_method.applicable_kinds = method
 dotnet_naming_symbols.private_method.applicable_accessibilities = private
-dotnet_naming_symbols.private_method.required_modifiers = 
+dotnet_naming_symbols.private_method.required_modifiers =
 
 dotnet_naming_symbols.types.applicable_kinds = class, struct, interface, enum
 dotnet_naming_symbols.types.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
-dotnet_naming_symbols.types.required_modifiers = 
+dotnet_naming_symbols.types.required_modifiers =
 
 dotnet_naming_symbols.constant.applicable_kinds = field, local
 dotnet_naming_symbols.constant.applicable_accessibilities = *
@@ -337,55 +368,55 @@ dotnet_naming_symbols.constant.required_modifiers = const
 
 dotnet_naming_symbols.public_method.applicable_kinds = method
 dotnet_naming_symbols.public_method.applicable_accessibilities = public
-dotnet_naming_symbols.public_method.required_modifiers = 
+dotnet_naming_symbols.public_method.required_modifiers =
 
 dotnet_naming_symbols.protected_method.applicable_kinds = method
 dotnet_naming_symbols.protected_method.applicable_accessibilities = protected
-dotnet_naming_symbols.protected_method.required_modifiers = 
+dotnet_naming_symbols.protected_method.required_modifiers =
 
 dotnet_naming_symbols.internal_method.applicable_kinds = method
 dotnet_naming_symbols.internal_method.applicable_accessibilities = internal
-dotnet_naming_symbols.internal_method.required_modifiers = 
+dotnet_naming_symbols.internal_method.required_modifiers =
 
 dotnet_naming_symbols.parameter.applicable_kinds = parameter
 dotnet_naming_symbols.parameter.applicable_accessibilities = local
-dotnet_naming_symbols.parameter.required_modifiers = 
+dotnet_naming_symbols.parameter.required_modifiers =
 
 dotnet_naming_symbols.public_property.applicable_kinds = property
 dotnet_naming_symbols.public_property.applicable_accessibilities = public
-dotnet_naming_symbols.public_property.required_modifiers = 
+dotnet_naming_symbols.public_property.required_modifiers =
 
 dotnet_naming_symbols.internal_property.applicable_kinds = property
 dotnet_naming_symbols.internal_property.applicable_accessibilities = internal
-dotnet_naming_symbols.internal_property.required_modifiers = 
+dotnet_naming_symbols.internal_property.required_modifiers =
 
 dotnet_naming_symbols.protected_property.applicable_kinds = property
 dotnet_naming_symbols.protected_property.applicable_accessibilities = protected
-dotnet_naming_symbols.protected_property.required_modifiers = 
+dotnet_naming_symbols.protected_property.required_modifiers =
 
 dotnet_naming_symbols.private_property.applicable_kinds = property
 dotnet_naming_symbols.private_property.applicable_accessibilities = private
-dotnet_naming_symbols.private_property.required_modifiers = 
+dotnet_naming_symbols.private_property.required_modifiers =
 
 dotnet_naming_symbols.public_filed.applicable_kinds = field
 dotnet_naming_symbols.public_filed.applicable_accessibilities = public
-dotnet_naming_symbols.public_filed.required_modifiers = 
+dotnet_naming_symbols.public_filed.required_modifiers =
 
 dotnet_naming_symbols.internal_field.applicable_kinds = field
 dotnet_naming_symbols.internal_field.applicable_accessibilities = internal
-dotnet_naming_symbols.internal_field.required_modifiers = 
+dotnet_naming_symbols.internal_field.required_modifiers =
 
 dotnet_naming_symbols.protected_field.applicable_kinds = field
 dotnet_naming_symbols.protected_field.applicable_accessibilities = protected
-dotnet_naming_symbols.protected_field.required_modifiers = 
+dotnet_naming_symbols.protected_field.required_modifiers =
 
 dotnet_naming_symbols.private_field.applicable_kinds = field
 dotnet_naming_symbols.private_field.applicable_accessibilities = private
-dotnet_naming_symbols.private_field.required_modifiers = 
+dotnet_naming_symbols.private_field.required_modifiers =
 
 dotnet_naming_symbols.variable.applicable_kinds = local
 dotnet_naming_symbols.variable.applicable_accessibilities = local
-dotnet_naming_symbols.variable.required_modifiers = 
+dotnet_naming_symbols.variable.required_modifiers =
 
 
 
@@ -395,29 +426,29 @@ dotnet_naming_symbols.variable.required_modifiers =
 ###############################
 
 # Style Definitions
-dotnet_naming_style.pascal_case.required_prefix = 
-dotnet_naming_style.pascal_case.required_suffix = 
-dotnet_naming_style.pascal_case.word_separator = 
+dotnet_naming_style.pascal_case.required_prefix =
+dotnet_naming_style.pascal_case.required_suffix =
+dotnet_naming_style.pascal_case.word_separator =
 dotnet_naming_style.pascal_case.capitalization = pascal_case
 
 dotnet_naming_style.begins_with_i.required_prefix = I
-dotnet_naming_style.begins_with_i.required_suffix = 
-dotnet_naming_style.begins_with_i.word_separator = 
+dotnet_naming_style.begins_with_i.required_suffix =
+dotnet_naming_style.begins_with_i.word_separator =
 dotnet_naming_style.begins_with_i.capitalization = pascal_case
 
 dotnet_naming_style._camalcase.required_prefix = _
-dotnet_naming_style._camalcase.required_suffix = 
-dotnet_naming_style._camalcase.word_separator = 
+dotnet_naming_style._camalcase.required_suffix =
+dotnet_naming_style._camalcase.word_separator =
 dotnet_naming_style._camalcase.capitalization = camel_case
 
-dotnet_naming_style.upper_snake_case.required_prefix = 
-dotnet_naming_style.upper_snake_case.required_suffix = 
+dotnet_naming_style.upper_snake_case.required_prefix =
+dotnet_naming_style.upper_snake_case.required_suffix =
 dotnet_naming_style.upper_snake_case.word_separator = _
 dotnet_naming_style.upper_snake_case.capitalization = all_upper
 
-dotnet_naming_style.camel_case.required_prefix = 
-dotnet_naming_style.camel_case.required_suffix = 
-dotnet_naming_style.camel_case.word_separator = 
+dotnet_naming_style.camel_case.required_prefix =
+dotnet_naming_style.camel_case.required_suffix =
+dotnet_naming_style.camel_case.word_separator =
 dotnet_naming_style.camel_case.capitalization = camel_case
 
 
