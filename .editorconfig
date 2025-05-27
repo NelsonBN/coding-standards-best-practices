@@ -46,7 +46,7 @@ indent_size = 2
 indent_size = 4
 
 # Visual Studio Solution Files
-[*.sln]
+[*.{sln,slnx}]
 indent_size = 2
 
 # Markdown Files
